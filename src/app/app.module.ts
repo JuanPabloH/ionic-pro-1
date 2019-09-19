@@ -11,6 +11,18 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AboutPage } from '../pages/about/about';
 import { TerceraPage } from '../pages/tercera/tercera';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {AngularFireModule} from 'angularfire2';
+export const firebaseConfig = {
+    apiKey: "AIzaSyBBLLLke7t2hd3zYIJkrlY5bKNyByV9nKk",
+    authDomain: "ionicbasicplatzi-22660.firebaseapp.com",
+    databaseURL: "https://ionicbasicplatzi-22660.firebaseio.com",
+    projectId: "ionicbasicplatzi-22660",
+    storageBucket: "",
+    messagingSenderId: "485034639952",
+    appId: "1:485034639952:web:425694af4d75dfb3378755"
+};
 
 @NgModule({
   declarations: [
@@ -24,7 +36,10 @@ import { TerceraPage } from '../pages/tercera/tercera';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
