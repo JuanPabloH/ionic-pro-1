@@ -8,10 +8,20 @@ import { LugarPage } from '../lugar/lugar';
 })
 export class HomePage {
 
+  lugares: any=[
+    {nombre:'Lugar 1',direccion:'Direccion 1', categoria:'Categoria 1 '},
+    {nombre:'Lugar 2',direccion:'Direccion 2', categoria:'Categoria 2 '}
+  ];
   constructor(public navCtrl: NavController) {
 
   }
   navegarALugar(name){
     this.navCtrl.push(LugarPage,{nombre:name});
+  }
+  irAVistaDetalleLugar(lugar){
+    this.navCtrl.push(LugarPage,{lugar:lugar});
+  }
+  irAVistaDeDetalle(){
+    this.navCtrl.push(LugarPage,{lugar:{}});
   }
 }
