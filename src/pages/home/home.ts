@@ -11,7 +11,7 @@ export class HomePage {
   constructor(public navCtrl: NavController) {
 
   }
-  navegarALugar(){
-    this.navCtrl.push(LugarPage);
+  navegarALugar(name){
+    this.navCtrl.push(LugarPage,{nombre:name});
   }
 }
