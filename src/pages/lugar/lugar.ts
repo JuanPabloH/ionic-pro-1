@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LugaresService } from '../../services/lugares.service';
 
 
 /**
@@ -15,15 +16,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'lugar.html',
 })
 export class LugarPage {
-  lugar:string='';
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  lugar:any = { };
+  constructor(public navCtrl: NavController, public navParams: NavParams, public lugaresService:LugaresService) {
     this.lugar=navParams.get('lugar');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LugarPage');
   }
- 
+  guardarLugar(){
+    if (!this.lugar.id) {
+      this.lugar.id=Date.now();//generar fecha en milisegundos  
+    }
+    
+    this.lugaresService.createLugar(this.lugar);
+    this.navCtrl.pop();
+    alert('Lugar guardado correctamente');
+    console.log(this.lugar);
+  }
   
 
 
